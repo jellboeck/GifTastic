@@ -3,6 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="Assets/style.css">
 
     <title>GifTasic</title>
@@ -11,16 +13,24 @@
 
 <body>
 
-    <button data-char="homer simpson">Homer Simpson</button>
-    <button data-char="marge simpson">Marge Simpson</button>
-    <button data-char="bart simpson">Bart Simpson</button>
-    <button data-char="lisa simpson">Lisa Simpson</button>
-    <button data-char="maggie simpson">Maggie Simpson</button>
-    <button data-char="santas little helper">Santa's Little Helper</button>
-    <button data-char="mr burns">Mr. Burns</button>
-    <button data-char="moe szyslak">Moe Szyslak</button>
-    <button data-char="barney gumble">Barney Gumble</button>
-    <button data-char="milhouse">Milhouse</button>
+    <div class="container">
+        <div class="row">
+            <div class=col-12>
+                <img id="logo" src="Assets/Simpsons Logo.jpg">
+            </div>
+        </div>
+    </div>
+
+    <button class="char-btn" data-char="homer simpson">Homer Simpson</button>
+    <button class="char-btn" data-char="marge simpson">Marge Simpson</button>
+    <button class="char-btn" data-char="bart simpson">Bart Simpson</button>
+    <button class="char-btn" data-char="lisa simpson">Lisa Simpson</button>
+    <button class="char-btn" data-char="maggie simpson">Maggie Simpson</button>
+    <button class="char-btn" data-char="santas little helper">Santa's Little Helper</button>
+    <button class="char-btn" data-char="mr burns">Mr. Burns</button>
+    <button class="char-btn" data-char="moe szyslak">Moe Szyslak</button>
+    <button class="char-btn" data-char="barney gumble">Barney Gumble</button>
+    <button class="char-btn" data-char="milhouse">Milhouse</button>
 
     <div id="gifs-appear-here"></div>
 

@@ -1,8 +1,8 @@
-var character
-var queryURL
+var character;
+var queryURL;
+
 
 $("button").on("click", function () {
-    // Grabbing and storing the data-animal property value from the button
     character = $(this).attr("data-char");
     console.log(character);
 
@@ -19,23 +19,50 @@ $("button").on("click", function () {
 
             for (var i = 0; i < results.length; i++) {
 
-                // Creating and storing a div tag
-                var characterDiv = $("<div>");
-
                 var p = $("<p>").text("Rating: " + results[i].rating);
-            
+
+                // Creating and storing a div tag
+                characterDiv = $("<div>");
+                characterDiv.attr("id", "characterDiv");
+
                 // Creating and storing an image tag
-                var characterImage = $("<img>");
+                characterImage = $("<img>");
                 // Setting the src attribute of the image to a property pulled off the result item
-                characterImage.attr("src", results[i].images.fixed_height.url);
+                characterImage.attr("src", results[i].images.fixed_height_still.url);
+                characterImage.attr("data-still", results[i].images.fixed_height_still.url);
+                characterImage.attr("data-animate", results[i].images.fixed_height.url);
+                characterImage.attr("data-state", "still");
+                characterImage.addClass("gif");
+
 
                 // Appending the paragraph and image tag to the animalDiv
                 characterDiv.append(characterImage);
                 characterDiv.append(p);
-             
 
                 // Prependng the animalDiv to the HTML page in the "#gifs-appear-here" div
                 $("#gifs-appear-here").prepend(characterDiv);
+
+
             }
+
         });
 })
+
+$("#gifs-appear-here").on("click", ".gif", function () {
+    // gets the current state of the clicked gif 
+    var state = $(this).attr("data-state");
+    var animateImage = $(this).attr("data-animate");
+    var stillImage = $(this).attr("data-still");
+    console.log(state);
+
+    if (state === "still") {
+        $(this).attr("src", animateImage);
+        $(this).attr("data-state", "animate");
+    }
+
+    else if (state === "animate") {
+        $(this).attr("src", stillImage);
+        $(this).attr("data-state", "still");
+    }
+});
+

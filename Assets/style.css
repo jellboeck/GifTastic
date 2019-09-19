@@ -1,0 +1,22 @@
+body {
+    background: #009DDC;
+}
+
+#logo {
+    width:600px;
+    
+}
+
+.char-btn {
+    background:#FED41D;
+    border: solid  2 px ;
+    border-radius:5px;
+    font-size: 17px;
+    margin:10px;
+}
+
+#characterDiv {
+    text-align: center;
+    color:#FED41D;;
+    font-weight: bold;
+}

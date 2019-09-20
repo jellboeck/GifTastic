@@ -1,9 +1,27 @@
 var character;
 var queryURL;
+var data_char = ["Homer Simpson" , "Marge Simpson" , "Bart Simpson", "Lisa Simpson", "Maggie Simpson", "Santas Little Helper", "Mr Burns", "Moe Szyslak", "Barney Gumble", "Milhouse"];
 
+
+function renderButtons(){ 
+
+    $("#renderButtons").empty();
+
+    for (var j = 0; j < data_char.length; j++){
+
+        var newButton = $("<button>") 
+        newButton.attr("class", "char-btn");
+        newButton.attr("id", "input")  
+        newButton.attr("data-name", data_char[j]); 
+        newButton.text(data_char[j]); 
+        $("#renderButtons").append(newButton); 
+    }
+}
+
+renderButtons()
 
 $("button").on("click", function () {
-    character = $(this).attr("data-char");
+    character = $(this).attr("data-name");
     console.log(character);
 
     queryURL = "https://api.giphy.com/v1/gifs/search?q=" +

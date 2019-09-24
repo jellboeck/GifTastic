@@ -29,7 +29,7 @@ $("#submitChar").on("click", function () {
 
 })
 
-$(".char-btn").on("click", function () {
+$("#renderButtons").on("click", ".char-btn" , function () {
     character = $(this).attr("data-name");
     console.log(character);
 

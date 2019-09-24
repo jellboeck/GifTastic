@@ -11,18 +11,18 @@ function renderButtons() {
     for (var j = 0; j < data_char.length; j++) {
 
         var newButton = $("<button>")
-        newButton.attr("class", "char-btn");
+        newButton.addClass("char-btn");
         newButton.attr("id", "input")
         newButton.attr("data-name", data_char[j]);
         newButton.text(data_char[j]);
         $("#renderButtons").append(newButton);
+        console.log(data_char[j]);
     }
 }
 
 $("#submitChar").on("click", function () {
     event.preventDefault();
     var newCharacter = $("#newCharacter").val().trim();
-    console.log(newCharacter);
     data_char.push(newCharacter);
     console.log(data_char);
     renderButtons();
@@ -49,33 +49,25 @@ $(".char-btn").on("click", function () {
 
                 var p = $("<p>").text("Rating: " + results[i].rating);
 
-                // Creating and storing a div tag
                 characterDiv = $("<div>");
                 characterDiv.attr("id", "characterDiv");
 
-                // Creating and storing an image tag
                 characterImage = $("<img>");
-                // Setting the src attribute of the image to a property pulled off the result item
                 characterImage.attr("src", results[i].images.fixed_height_still.url);
                 characterImage.attr("data-still", results[i].images.fixed_height_still.url);
                 characterImage.attr("data-animate", results[i].images.fixed_height.url);
                 characterImage.attr("data-state", "still");
                 characterImage.addClass("gif");
 
-
-                // Appending the paragraph and image tag to the animalDiv
                 characterDiv.append(characterImage);
                 characterDiv.append(p);
 
-                // Prependng the animalDiv to the HTML page in the "#gifs-appear-here" div
                 $("#gifs-appear-here").append(characterDiv);
 
             }
 
         });
 })
-
-
 
 $("#gifs-appear-here").on("click", ".gif", function () {
     // gets the current state of the clicked gif 

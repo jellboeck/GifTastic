@@ -1,26 +1,35 @@
 var character;
 var queryURL;
-var data_char = ["Homer Simpson" , "Marge Simpson" , "Bart Simpson", "Lisa Simpson", "Maggie Simpson", "Santas Little Helper", "Mr Burns", "Moe Szyslak", "Barney Gumble", "Milhouse"];
-
-
-function renderButtons(){ 
-
-    $("#renderButtons").empty();
-
-    for (var j = 0; j < data_char.length; j++){
-
-        var newButton = $("<button>") 
-        newButton.attr("class", "char-btn");
-        newButton.attr("id", "input")  
-        newButton.attr("data-name", data_char[j]); 
-        newButton.text(data_char[j]); 
-        $("#renderButtons").append(newButton); 
-    }
-}
+var data_char = ["Homer Simpson", "Marge Simpson", "Bart Simpson", "Lisa Simpson", "Maggie Simpson", "Santas Little Helper", "Mr Burns", "Moe Szyslak", "Barney Gumble", "Milhouse"];
 
 renderButtons()
 
-$("button").on("click", function () {
+function renderButtons() {
+
+    $("#renderButtons").empty();
+
+    for (var j = 0; j < data_char.length; j++) {
+
+        var newButton = $("<button>")
+        newButton.attr("class", "char-btn");
+        newButton.attr("id", "input")
+        newButton.attr("data-name", data_char[j]);
+        newButton.text(data_char[j]);
+        $("#renderButtons").append(newButton);
+    }
+}
+
+$("#submitChar").on("click", function () {
+    event.preventDefault();
+    var newCharacter = $("#newCharacter").val().trim();
+    console.log(newCharacter);
+    data_char.push(newCharacter);
+    console.log(data_char);
+    renderButtons();
+
+})
+
+$(".char-btn").on("click", function () {
     character = $(this).attr("data-name");
     console.log(character);
 
@@ -34,6 +43,7 @@ $("button").on("click", function () {
 
         .then(function (response) {
             var results = response.data;
+            $("#gifs-appear-here").empty();
 
             for (var i = 0; i < results.length; i++) {
 
@@ -58,13 +68,14 @@ $("button").on("click", function () {
                 characterDiv.append(p);
 
                 // Prependng the animalDiv to the HTML page in the "#gifs-appear-here" div
-                $("#gifs-appear-here").prepend(characterDiv);
-
+                $("#gifs-appear-here").append(characterDiv);
 
             }
 
         });
 })
+
+
 
 $("#gifs-appear-here").on("click", ".gif", function () {
     // gets the current state of the clicked gif 

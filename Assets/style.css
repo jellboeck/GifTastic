@@ -3,20 +3,43 @@ body {
 }
 
 #logo {
-    width:600px;
+    width:500px;
+    margin: auto;
     
+}
+
+#logoContainer {
+    margin: auto;
+    color: #FED41D;
+    text-align: center;
 }
 
 .char-btn {
     background:#FED41D;
-    border: solid  2 px ;
+    border: solid,  2px ;
     border-radius:5px;
+    color:#F65132;
+    font-weight: bold;
     font-size: 17px;
     margin:10px;
 }
 
 #characterDiv {
     text-align: center;
-    color:#FED41D;;
+    color:#FED41D;
     font-weight: bold;
+}
+
+#form {
+    margin:auto;
+    color:#F65132;
+}
+
+#submitChar {
+    background:#F65132;
+    border: solid, 2px ;
+    border-radius:5px;
+    font-weight: bold;
+    color: #FED41D;
+    margin: 10px;
 }
